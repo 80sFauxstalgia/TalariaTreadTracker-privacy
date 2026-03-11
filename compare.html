@@ -1,0 +1,720 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How We Compare - TalariaTreadTracker vs Strava | Talaria Labs</title>
+    <meta
+      name="description"
+      content="See how TalariaTreadTracker's multi-factor shoe wear analysis compares to Strava's basic gear tracking. They're complementary, not competitive."
+    />
+    <meta name="theme-color" content="#0a1628" />
+    <link rel="icon" type="image/png" href="app-icon.png" />
+    <style>
+      :root {
+        --bg: #0a1628;
+        --bg-card: #141e30;
+        --bg-card-hover: #1a2740;
+        --text: #f5f5f7;
+        --text-secondary: #a1a1a6;
+        --accent: #007aff;
+        --accent-hover: #0a84ff;
+        --border: #2a3444;
+        --radius: 16px;
+        --radius-sm: 10px;
+        --green: #30d158;
+        --orange: #ff9f0a;
+        --red: #ff453a;
+      }
+
+      @media (prefers-color-scheme: light) {
+        :root {
+          --bg: #f5f5f7;
+          --bg-card: #ffffff;
+          --bg-card-hover: #fafafa;
+          --text: #1d1d1f;
+          --text-secondary: #6e6e73;
+          --border: #d2d2d7;
+          --green: #248a3d;
+          --orange: #c93400;
+        }
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI",
+          Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      nav {
+        padding: 20px 24px;
+        max-width: 900px;
+        margin: 0 auto;
+        width: 100%;
+      }
+
+      nav a {
+        color: var(--accent);
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 500;
+      }
+
+      nav a:hover {
+        text-decoration: underline;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 24px 80px;
+        flex: 1;
+      }
+
+      /* Hero */
+      .hero {
+        text-align: center;
+        margin-bottom: 56px;
+        padding-bottom: 40px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .hero h1 {
+        font-size: 2.4rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        margin-bottom: 12px;
+        line-height: 1.2;
+      }
+
+      .hero h1 .accent {
+        color: var(--accent);
+      }
+
+      .hero .subtitle {
+        font-size: 1.15rem;
+        color: var(--text-secondary);
+        max-width: 560px;
+        margin: 0 auto;
+      }
+
+      /* Positioning banner */
+      .positioning {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-left: 4px solid var(--accent);
+        border-radius: var(--radius-sm);
+        padding: 24px 28px;
+        margin-bottom: 48px;
+        text-align: center;
+      }
+
+      .positioning p {
+        font-size: 1.05rem;
+        color: var(--text-secondary);
+      }
+
+      .positioning strong {
+        color: var(--text);
+      }
+
+      /* Section headers */
+      .section-header {
+        margin-bottom: 24px;
+        margin-top: 56px;
+      }
+
+      .section-header:first-of-type {
+        margin-top: 0;
+      }
+
+      .section-header h2 {
+        font-size: 1.6rem;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+        margin-bottom: 8px;
+      }
+
+      .section-header p {
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+      }
+
+      /* Comparison table */
+      .compare-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        margin-bottom: 48px;
+        border: 1px solid var(--border);
+        border-radius: var(--radius-sm);
+        overflow: hidden;
+      }
+
+      .compare-table thead th {
+        background: var(--bg-card);
+        padding: 16px 20px;
+        text-align: left;
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--text-secondary);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .compare-table thead th:first-child {
+        width: 45%;
+      }
+
+      .compare-table thead th.col-ttt {
+        color: var(--accent);
+      }
+
+      .compare-table tbody td {
+        padding: 14px 20px;
+        font-size: 0.95rem;
+        border-bottom: 1px solid var(--border);
+        vertical-align: top;
+      }
+
+      .compare-table tbody tr:last-child td {
+        border-bottom: none;
+      }
+
+      .compare-table tbody td:first-child {
+        font-weight: 500;
+        color: var(--text);
+      }
+
+      .compare-table tbody td:nth-child(2),
+      .compare-table tbody td:nth-child(3) {
+        color: var(--text-secondary);
+      }
+
+      .check {
+        color: var(--green);
+        font-weight: 600;
+      }
+
+      .dash {
+        color: var(--text-secondary);
+        opacity: 0.5;
+      }
+
+      .highlight-row td {
+        background: var(--bg-card);
+      }
+
+      /* Feature deep-dive cards */
+      .depth-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin-bottom: 48px;
+      }
+
+      @media (min-width: 640px) {
+        .depth-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      .depth-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-sm);
+        padding: 24px;
+      }
+
+      .depth-card .card-icon {
+        font-size: 1.6rem;
+        margin-bottom: 12px;
+      }
+
+      .depth-card h3 {
+        font-size: 1.05rem;
+        font-weight: 600;
+        margin-bottom: 8px;
+      }
+
+      .depth-card p {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        line-height: 1.5;
+      }
+
+      .depth-card .strava-note {
+        margin-top: 12px;
+        padding-top: 12px;
+        border-top: 1px solid var(--border);
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+        font-style: italic;
+      }
+
+      /* Bottom line */
+      .bottom-line {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 40px 32px;
+        text-align: center;
+        margin-top: 56px;
+      }
+
+      .bottom-line h2 {
+        font-size: 1.6rem;
+        font-weight: 600;
+        margin-bottom: 16px;
+      }
+
+      .bottom-line p {
+        color: var(--text-secondary);
+        font-size: 1rem;
+        max-width: 600px;
+        margin: 0 auto 24px;
+      }
+
+      .bottom-line .cta-row {
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 24px;
+        border-radius: 980px;
+        font-size: 0.95rem;
+        font-weight: 500;
+        text-decoration: none;
+        transition: all 0.2s ease;
+      }
+
+      .btn-primary {
+        background: var(--accent);
+        color: #fff;
+      }
+
+      .btn-primary:hover {
+        background: var(--accent-hover);
+      }
+
+      .btn-secondary {
+        background: transparent;
+        color: var(--accent);
+        border: 1px solid var(--border);
+      }
+
+      .btn-secondary:hover {
+        border-color: var(--accent);
+      }
+
+      /* Footer */
+      footer {
+        text-align: center;
+        padding: 32px 24px;
+        border-top: 1px solid var(--border);
+        color: var(--text-secondary);
+        font-size: 0.85rem;
+      }
+
+      footer a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      footer a:hover {
+        text-decoration: underline;
+      }
+
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 24px;
+        margin-top: 8px;
+      }
+
+      /* Responsive */
+      @media (max-width: 640px) {
+        .hero h1 {
+          font-size: 1.8rem;
+        }
+
+        .hero .subtitle {
+          font-size: 1rem;
+        }
+
+        .compare-table {
+          font-size: 0.85rem;
+        }
+
+        .compare-table thead th,
+        .compare-table tbody td {
+          padding: 10px 12px;
+        }
+
+        .compare-table thead th {
+          font-size: 0.75rem;
+        }
+
+        .bottom-line {
+          padding: 28px 20px;
+        }
+
+        .section-header h2 {
+          font-size: 1.35rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="/">&larr; Talaria Labs</a>
+    </nav>
+
+    <div class="container">
+      <div class="hero">
+        <h1>
+          Strava counts your miles.<br /><span class="accent"
+            >We count what they cost.</span
+          >
+        </h1>
+        <p class="subtitle">
+          TalariaTreadTracker picks up exactly where Strava's gear page ends
+          &mdash; with science-backed wear analysis that goes far beyond a
+          simple odometer.
+        </p>
+      </div>
+
+      <div class="positioning">
+        <p>
+          <strong>These apps are complementary, not competitive.</strong> Strava
+          tracks your fitness. TalariaTreadTracker tracks your shoe health. Both
+          read from HealthKit &mdash; no double entry needed.
+        </p>
+      </div>
+
+      <!-- Shoe Tracking -->
+      <div class="section-header">
+        <h2>Shoe Tracking</h2>
+        <p>
+          The feature Strava includes but doesn't go deep on &mdash; and the
+          entire reason TalariaTreadTracker exists.
+        </p>
+      </div>
+
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th class="col-ttt">TalariaTreadTracker</th>
+            <th>Strava</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Track shoes by name &amp; brand</td>
+            <td class="check">Yes</td>
+            <td class="check">Yes</td>
+          </tr>
+          <tr>
+            <td>Raw mileage tracking</td>
+            <td class="check">Yes</td>
+            <td class="check">Yes</td>
+          </tr>
+          <tr>
+            <td>Auto-assign by activity type</td>
+            <td class="check">Yes</td>
+            <td class="check">Yes</td>
+          </tr>
+          <tr>
+            <td>Mileage notification</td>
+            <td class="check">In-app alerts with urgency levels</td>
+            <td class="check">Email at set threshold</td>
+          </tr>
+          <tr class="highlight-row">
+            <td>Multi-factor wear analysis</td>
+            <td class="check">
+              8 factors: terrain, elevation, pace, temperature, biomechanics,
+              fatigue, shoe age, rotation
+            </td>
+            <td class="dash">&mdash;</td>
+          </tr>
+          <tr class="highlight-row">
+            <td>Effective mileage</td>
+            <td class="check">
+              A 5-mile trail run may count as 6.5 miles of wear
+            </td>
+            <td class="dash">&mdash;</td>
+          </tr>
+          <tr class="highlight-row">
+            <td>Wear shown as ranges</td>
+            <td class="check">
+              "45&ndash;55% worn" &mdash; no false precision
+            </td>
+            <td class="dash">&mdash;</td>
+          </tr>
+          <tr class="highlight-row">
+            <td>Shoe rotation bonus</td>
+            <td class="check">Up to 35% wear reduction for rotating</td>
+            <td class="dash">&mdash;</td>
+          </tr>
+          <tr class="highlight-row">
+            <td>Foam aging model</td>
+            <td class="check">
+              Accounts for degradation over time on the shelf
+            </td>
+            <td class="dash">&mdash;</td>
+          </tr>
+          <tr class="highlight-row">
+            <td>Running form impact on shoes</td>
+            <td class="check">Apple Watch biomechanics factor into wear</td>
+            <td class="dash">&mdash;</td>
+          </tr>
+          <tr class="highlight-row">
+            <td>Pace degradation detection</td>
+            <td class="check">Flags slowdowns as potential wear signal</td>
+            <td class="dash">&mdash;</td>
+          </tr>
+          <tr>
+            <td>Shoe photos</td>
+            <td class="check">At purchase and retirement</td>
+            <td class="dash">&mdash;</td>
+          </tr>
+          <tr>
+            <td>Retire &amp; unretire shoes</td>
+            <td class="check">Both directions</td>
+            <td>Retire only</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Where Strava excels -->
+      <div class="section-header">
+        <h2>Where Strava Excels</h2>
+        <p>
+          Strava is a full fitness platform. We don't try to replace what it
+          does best.
+        </p>
+      </div>
+
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th class="col-ttt">TalariaTreadTracker</th>
+            <th>Strava</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>GPS maps &amp; route display</td>
+            <td class="dash">&mdash;</td>
+            <td class="check">Yes</td>
+          </tr>
+          <tr>
+            <td>Social feed, kudos &amp; clubs</td>
+            <td class="dash">&mdash;</td>
+            <td class="check">100M+ athletes</td>
+          </tr>
+          <tr>
+            <td>Segments &amp; leaderboards</td>
+            <td class="dash">&mdash;</td>
+            <td class="check">Yes (paid)</td>
+          </tr>
+          <tr>
+            <td>Training plans</td>
+            <td class="dash">&mdash;</td>
+            <td class="check">Via Runna (paid)</td>
+          </tr>
+          <tr>
+            <td>Route building</td>
+            <td class="dash">&mdash;</td>
+            <td class="check">Yes (paid)</td>
+          </tr>
+          <tr>
+            <td>50+ sport types</td>
+            <td class="dash">&mdash;</td>
+            <td class="check">Yes</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Deep Dive: What only we do -->
+      <div class="section-header">
+        <h2>What Makes Our Approach Different</h2>
+        <p>
+          We built TalariaTreadTracker because "500 miles and you're done" isn't
+          how shoes actually wear out.
+        </p>
+      </div>
+
+      <div class="depth-grid">
+        <div class="depth-card">
+          <div class="card-icon" aria-hidden="true">&#x1F3D4;&#xFE0F;</div>
+          <h3>Terrain-Aware Wear</h3>
+          <p>
+            A trail run wears shoes differently than asphalt. We auto-detect
+            trail vs. road vs. treadmill via GPS elevation analysis and adjust
+            wear accordingly.
+          </p>
+          <p class="strava-note">
+            Strava: counts 5 miles as 5 miles regardless of surface.
+          </p>
+        </div>
+
+        <div class="depth-card">
+          <div class="card-icon" aria-hidden="true">&#x1F9EC;</div>
+          <h3>Biomechanics Impact</h3>
+          <p>
+            If your Apple Watch records cadence, ground contact time, or
+            vertical oscillation, we use pace-aware targets to estimate how your
+            form affects shoe stress.
+          </p>
+          <p class="strava-note">
+            Strava: no shoe-specific biomechanics analysis.
+          </p>
+        </div>
+
+        <div class="depth-card">
+          <div class="card-icon" aria-hidden="true">&#x1F504;</div>
+          <h3>Rotation Bonus</h3>
+          <p>
+            Research shows rotating between shoes can reduce injury risk by 39%.
+            We reward multi-shoe strategies with up to 35% wear reduction credit
+            &mdash; because rested foam lasts longer.
+          </p>
+          <p class="strava-note">
+            Strava: tracks shoes independently with no rotation awareness.
+          </p>
+        </div>
+
+        <div class="depth-card">
+          <div class="card-icon" aria-hidden="true">&#x1F52C;</div>
+          <h3>Scientific Transparency</h3>
+          <p>
+            Every wear factor in the app links to peer-reviewed research with
+            evidence quality ratings. We show our work, acknowledge limitations,
+            and mark all estimates as estimates.
+          </p>
+          <p class="strava-note">
+            Strava: no methodology documentation for gear tracking.
+          </p>
+        </div>
+
+        <div class="depth-card">
+          <div class="card-icon" aria-hidden="true">&#x1F3C3;</div>
+          <h3>Session Grouping</h3>
+          <p>
+            Warm-up walk, interval run, cool-down walk? We detect the full
+            session automatically and assign the whole chain to one shoe &mdash;
+            capturing your real workout pattern.
+          </p>
+          <p class="strava-note">
+            Strava: each activity is tracked independently.
+          </p>
+        </div>
+
+        <div class="depth-card">
+          <div class="card-icon" aria-hidden="true">&#x1F6E1;&#xFE0F;</div>
+          <h3>Privacy-First</h3>
+          <p>
+            All analysis runs on your device. No accounts, no external servers,
+            no analytics. Your health data stays in your HealthKit and your
+            personal iCloud &mdash; nowhere else.
+          </p>
+          <p class="strava-note">
+            Strava: account-based with data stored on Strava servers.
+          </p>
+        </div>
+      </div>
+
+      <!-- Pricing -->
+      <div class="section-header">
+        <h2>Pricing</h2>
+      </div>
+
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th class="col-ttt">TalariaTreadTracker</th>
+            <th>Strava</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Price</td>
+            <td class="check">$2.99</td>
+            <td>Free tier + $11.99/mo for premium</td>
+          </tr>
+          <tr>
+            <td>All features included</td>
+            <td class="check">Yes &mdash; no paywalls</td>
+            <td>Segments, routes, training plans require subscription</td>
+          </tr>
+          <tr>
+            <td>Account required</td>
+            <td class="check">No &mdash; uses iCloud</td>
+            <td>Yes</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- CTA -->
+      <div class="bottom-line">
+        <h2>Use Both. They're Better Together.</h2>
+        <p>
+          Let Strava track your fitness journey. Let TalariaTreadTracker tell
+          you when the shoes carrying you through it need replacing &mdash;
+          based on how you actually run, not just how far.
+        </p>
+        <div class="cta-row">
+          <a href="treadtracker.html" class="btn btn-primary">Learn More</a>
+          <a href="support.html" class="btn btn-secondary">Get Help</a>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2025&ndash;2026 Talaria Labs. Built by Griffith Boggs.</p>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="support.html">Support</a>
+        <a href="mailto:talarialabs@proton.me">Contact</a>
+        <a href="privacy.html">Privacy</a>
+      </div>
+      <div class="footer-links" style="margin-top: 12px">
+        <a
+          href="https://bsky.app/profile/talarialabs.bsky.social"
+          target="_blank"
+          rel="noopener"
+          >Bluesky</a
+        >
+        <a
+          href="https://instagram.com/talaria.labs"
+          target="_blank"
+          rel="noopener"
+          >Instagram</a
+        >
+      </div>
+    </footer>
+  </body>
+</html>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Talaria Labs</title>
-    <meta name="description" content="Talaria Labs builds thoughtful fitness tools for runners. Home of TalariaTreadTracker.">
+    <meta name="description" content="Talaria Labs builds thoughtful tools that solve real problems. Home of TalariaTreadTracker, Kerykeion, StreamSaver, and fatfingers.">
     <meta name="theme-color" content="#0a1628">
     <link rel="icon" type="image/png" href="app-icon.png">
     <style>
@@ -19,6 +19,8 @@
             --border: #2a3444;
             --radius: 16px;
             --radius-sm: 10px;
+            --green: #30d158;
+            --orange: #ff9f0a;
         }
 
         @media (prefers-color-scheme: light) {
@@ -29,6 +31,8 @@
                 --text: #1d1d1f;
                 --text-secondary: #6e6e73;
                 --border: #d2d2d7;
+                --green: #248a3d;
+                --orange: #c93400;
             }
         }
 
@@ -51,7 +55,7 @@
         /* Hero */
         .hero {
             text-align: center;
-            padding: 80px 24px 60px;
+            padding: 80px 24px 64px;
         }
 
         .hero-logo {
@@ -69,11 +73,11 @@
             font-size: 1.2rem;
             color: var(--text-secondary);
             font-weight: 400;
-            max-width: 400px;
+            max-width: 440px;
             margin: 0 auto;
         }
 
-        /* Apps Grid */
+        /* Apps Section */
         .apps {
             max-width: 960px;
             margin: 0 auto;
@@ -93,22 +97,24 @@
         .app-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 24px;
+            gap: 20px;
         }
 
         @media (min-width: 640px) {
             .app-grid {
-                grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+                grid-template-columns: 1fr 1fr;
             }
         }
 
-        /* App Card */
+        /* App Cards */
         .app-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: var(--radius);
-            padding: 32px;
+            padding: 28px;
             transition: background 0.2s ease, border-color 0.2s ease;
+            display: flex;
+            flex-direction: column;
         }
 
         .app-card:hover {
@@ -116,68 +122,118 @@
             border-color: var(--accent);
         }
 
+        .app-card.featured {
+            grid-column: 1 / -1;
+        }
+
+        @media (min-width: 640px) {
+            .app-card.featured {
+                padding: 36px;
+            }
+        }
+
         .app-card-header {
             display: flex;
             align-items: center;
             gap: 16px;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
 
         .app-icon {
-            width: 72px;
-            height: 72px;
+            width: 64px;
+            height: 64px;
             border-radius: var(--radius-sm);
             flex-shrink: 0;
         }
 
+        .app-icon-placeholder {
+            width: 64px;
+            height: 64px;
+            border-radius: var(--radius-sm);
+            flex-shrink: 0;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+        }
+
         .app-info h2 {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             font-weight: 600;
             letter-spacing: -0.01em;
             margin-bottom: 2px;
         }
 
-        .app-info .app-tagline {
-            font-size: 0.95rem;
+        .app-info .app-subtitle {
+            font-size: 0.9rem;
             color: var(--text-secondary);
         }
 
-        .app-features {
-            list-style: none;
-            margin: 20px 0 24px;
-            display: grid;
-            gap: 10px;
+        .app-description {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            flex: 1;
         }
 
-        .app-features li {
+        /* Feature pills (for featured card) */
+        .feature-pills {
             display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            font-size: 0.95rem;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .pill {
+            font-size: 0.8rem;
+            padding: 4px 12px;
+            border-radius: 980px;
+            border: 1px solid var(--border);
             color: var(--text-secondary);
+            white-space: nowrap;
         }
 
-        .app-features li .feature-icon {
-            flex-shrink: 0;
-            width: 20px;
-            text-align: center;
-            color: var(--accent);
-        }
-
-        .app-actions {
+        /* Status + Actions */
+        .app-footer {
             display: flex;
             align-items: center;
-            gap: 16px;
+            gap: 12px;
             flex-wrap: wrap;
+        }
+
+        .badge {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            padding: 4px 10px;
+            border-radius: 6px;
+        }
+
+        .badge-live {
+            background: rgba(48, 209, 88, 0.15);
+            color: var(--green);
+        }
+
+        .badge-beta {
+            background: rgba(255, 159, 10, 0.15);
+            color: var(--orange);
+        }
+
+        .badge-dev {
+            background: rgba(0, 122, 255, 0.1);
+            color: var(--accent);
         }
 
         .btn {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 10px 20px;
+            padding: 8px 18px;
             border-radius: 980px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 500;
             text-decoration: none;
             transition: all 0.2s ease;
@@ -202,10 +258,9 @@
             border-color: var(--accent);
         }
 
-        .coming-soon {
-            font-size: 0.85rem;
+        .platform-tag {
+            font-size: 0.8rem;
             color: var(--text-secondary);
-            font-style: italic;
         }
 
         /* Footer */
@@ -236,7 +291,7 @@
         /* Responsive */
         @media (max-width: 480px) {
             .hero {
-                padding: 60px 20px 40px;
+                padding: 60px 20px 48px;
             }
 
             .hero-logo {
@@ -247,21 +302,22 @@
                 font-size: 1.05rem;
             }
 
+            .apps {
+                padding: 0 20px 60px;
+            }
+
             .app-card {
-                padding: 24px;
+                padding: 22px;
             }
 
-            .app-card-header {
-                gap: 12px;
-            }
-
-            .app-icon {
-                width: 56px;
-                height: 56px;
+            .app-icon,
+            .app-icon-placeholder {
+                width: 52px;
+                height: 52px;
             }
 
             .app-info h2 {
-                font-size: 1.2rem;
+                font-size: 1.15rem;
             }
         }
     </style>
@@ -271,45 +327,84 @@
     <main>
         <section class="hero">
             <h1 class="hero-logo">Talaria <span>Labs</span></h1>
-            <p class="hero-tagline">Thoughtful tools for runners.</p>
+            <p class="hero-tagline">Thoughtful tools that solve real problems.</p>
         </section>
 
         <section class="apps">
             <p class="apps-header">Apps</p>
             <div class="app-grid">
 
-                <!-- TalariaTreadTracker -->
-                <article class="app-card">
+                <!-- TalariaTreadTracker (Featured) -->
+                <article class="app-card featured">
                     <div class="app-card-header">
                         <img src="app-icon.png" alt="TalariaTreadTracker app icon" class="app-icon">
                         <div class="app-info">
                             <h2>TalariaTreadTracker</h2>
-                            <p class="app-tagline">Track your shoe mileage with science.</p>
+                            <p class="app-subtitle">Your shoes know more than their mileage.</p>
                         </div>
                     </div>
+                    <p class="app-description">Science-backed shoe wear tracking for runners. Goes beyond simple mileage with an 8-factor wear model that accounts for terrain, pace, elevation, biomechanics, temperature, rotation, and foam aging. Reads workouts from HealthKit, auto-detects terrain, and shows wear as honest ranges instead of false-precision numbers.</p>
+                    <div class="feature-pills">
+                        <span class="pill">HealthKit</span>
+                        <span class="pill">iCloud Sync</span>
+                        <span class="pill">Biomechanics</span>
+                        <span class="pill">Terrain Detection</span>
+                        <span class="pill">VoiceOver</span>
+                        <span class="pill">Privacy-First</span>
+                    </div>
+                    <div class="app-footer">
+                        <span class="badge badge-beta">TestFlight</span>
+                        <a href="treadtracker.html" class="btn btn-primary">Learn More</a>
+                        <a href="compare.html" class="btn btn-secondary">vs Strava</a>
+                        <span class="platform-tag">iOS</span>
+                    </div>
+                </article>
 
-                    <ul class="app-features">
-                        <li>
-                            <span class="feature-icon" aria-hidden="true">&#x2764;&#xFE0F;</span>
-                            <span>HealthKit integration &mdash; automatic workout import for running, walking, and hiking</span>
-                        </li>
-                        <li>
-                            <span class="feature-icon" aria-hidden="true">&#x1F9EA;</span>
-                            <span>Multi-factor wear analysis &mdash; terrain, pace, biomechanics, and more</span>
-                        </li>
-                        <li>
-                            <span class="feature-icon" aria-hidden="true">&#x2601;&#xFE0F;</span>
-                            <span>iCloud sync across all your devices</span>
-                        </li>
-                        <li>
-                            <span class="feature-icon" aria-hidden="true">&#x267F;</span>
-                            <span>Full accessibility &mdash; VoiceOver and Dynamic Type support</span>
-                        </li>
-                    </ul>
+                <!-- Kerykeion (financeTracker) -->
+                <article class="app-card">
+                    <div class="app-card-header">
+                        <div class="app-icon-placeholder" aria-hidden="true">&#x1F4B0;</div>
+                        <div class="app-info">
+                            <h2>Kerykeion</h2>
+                            <p class="app-subtitle">Personal finance, no cloud required.</p>
+                        </div>
+                    </div>
+                    <p class="app-description">Import bank CSVs, auto-categorize transactions, detect recurring bills, and track your runway. Smart transfer matching prevents double-counting across accounts. All data stays local.</p>
+                    <div class="app-footer">
+                        <span class="badge badge-beta">Next on TestFlight</span>
+                        <span class="platform-tag">macOS</span>
+                    </div>
+                </article>
 
-                    <div class="app-actions">
-                        <span class="coming-soon">Coming soon to the App Store</span>
-                        <a href="privacy.html" class="btn btn-secondary">Privacy Policy</a>
+                <!-- StreamSaver -->
+                <article class="app-card">
+                    <div class="app-card-header">
+                        <div class="app-icon-placeholder" aria-hidden="true">&#x1F4FA;</div>
+                        <div class="app-info">
+                            <h2>StreamSaver</h2>
+                            <p class="app-subtitle">Stop paying for shows you're not watching.</p>
+                        </div>
+                    </div>
+                    <p class="app-description">Tracks your streaming services, curates your watchlist, and generates month-by-month rotation plans so you're only subscribed to what you need. Powered by TMDB for show availability.</p>
+                    <div class="app-footer">
+                        <span class="badge badge-dev">In Development</span>
+                        <span class="platform-tag">iOS</span>
+                    </div>
+                </article>
+
+                <!-- fatfingers -->
+                <article class="app-card">
+                    <div class="app-card-header">
+                        <div class="app-icon-placeholder" aria-hidden="true">&#x2328;&#xFE0F;</div>
+                        <div class="app-info">
+                            <h2>fatfingers</h2>
+                            <p class="app-subtitle">A keyboard that learns how you type.</p>
+                        </div>
+                    </div>
+                    <p class="app-description">Custom iOS keyboard that calibrates to your actual finger placement. Type guided sentences, and the keyboard learns your per-key offsets to predict what you meant &mdash; not where you tapped.</p>
+                    <div class="app-footer">
+                        <span class="badge badge-dev">In Development</span>
+                        <span class="platform-tag">iOS</span>
                     </div>
                 </article>
 
