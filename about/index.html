@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Talaria Labs</title>
+    <meta name="description" content="Talaria Labs is an independent software studio built by Griffith Boggs. We make thoughtful tools that solve real problems.">
+    <meta name="theme-color" content="#0a1628">
+    <meta property="og:title" content="About - Talaria Labs">
+    <meta property="og:description" content="Independent software studio. We build tools for problems we've encountered ourselves.">
+    <meta property="og:url" content="https://talarialabs.app/about/">
+    <meta property="og:image" content="https://talarialabs.app/social-card.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Talaria Labs">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="About - Talaria Labs">
+    <meta name="twitter:description" content="Independent software studio. We build tools for problems we've encountered ourselves.">
+    <link rel="canonical" href="https://talarialabs.app/about/">
+    <link rel="icon" type="image/png" href="/app-icon.png">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      "name": "About Talaria Labs",
+      "description": "Independent software studio building thoughtful tools that solve real problems.",
+      "url": "https://talarialabs.app/about/",
+      "mainEntity": {
+        "@type": "Organization",
+        "name": "Talaria Labs",
+        "founder": {
+          "@type": "Person",
+          "name": "Griffith Boggs"
+        }
+      }
+    }
+    </script>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        header {
+            text-align: center;
+            margin-bottom: 48px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 8px;
+        }
+
+        h1 .accent {
+            color: var(--accent);
+        }
+
+        .lead {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            max-width: 560px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            margin-top: 48px;
+            margin-bottom: 16px;
+        }
+
+        p {
+            margin-bottom: 16px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .origin-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--accent);
+            border-radius: var(--radius-sm);
+            padding: 24px 28px;
+            margin: 32px 0;
+        }
+
+        .origin-card p {
+            color: var(--text);
+            margin-bottom: 0;
+        }
+
+        .origin-card .label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            margin: 24px 0 0;
+        }
+
+        @media (min-width: 640px) {
+            .values-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .value-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 20px 24px;
+        }
+
+        .value-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .value-card p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin-bottom: 0;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 1.8rem; }
+            .lead { font-size: 1rem; }
+            .container { padding: 0 20px 60px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="/">&larr; Talaria Labs</a>
+    </nav>
+
+    <div class="container">
+        <header>
+            <h1>About <span class="accent">Talaria Labs</span></h1>
+            <p class="lead">Independent software from Griffith Boggs. Thoughtful tools that solve real problems.</p>
+        </header>
+
+        <h2>The Approach</h2>
+        <p>Every project at Talaria Labs starts the same way: I encounter a problem in my own life and figure out how to code a solution. If it's useful to me, it's probably useful to someone else.</p>
+        <p>TalariaTreadTracker came about because my knees get sore from running and I wanted to know when my shoes were actually worn out &mdash; not just when they hit some arbitrary mileage number. That question turned into an 8-factor wear model backed by peer-reviewed research.</p>
+        <p>The same impulse drives everything here: personal finance tools that don't require handing over bank credentials, streaming trackers that optimize your subscriptions, keyboards that adapt to your hands.</p>
+
+        <div class="origin-card">
+            <p class="label">Why &ldquo;Talaria&rdquo;?</p>
+            <p>In Greek mythology, the Talaria are the winged sandals of Hermes &mdash; the god of travelers, boundaries, and clever solutions. The name came about while designing the TalariaTreadTracker logo: shoes that carry you farther. It stuck as the studio name.</p>
+        </div>
+
+        <h2>What We Build</h2>
+        <div class="values-grid">
+            <div class="value-card">
+                <h3>Privacy-First</h3>
+                <p>No accounts, no analytics, no external servers when possible. Your data stays on your devices.</p>
+            </div>
+            <div class="value-card">
+                <h3>Fair Pricing</h3>
+                <p>One-time purchases, no subscriptions. Pay once, own it. No hidden paywalls or microtransactions.</p>
+            </div>
+            <div class="value-card">
+                <h3>Real Problems</h3>
+                <p>We don't build features chasing trends. Every product exists because a real problem needed a real solution.</p>
+            </div>
+            <div class="value-card">
+                <h3>Honest Engineering</h3>
+                <p>Estimates are labeled as estimates. Limitations are documented. We show our work and acknowledge what we don't know.</p>
+            </div>
+        </div>
+
+        <h2>Background</h2>
+        <p>I'm a self-taught developer with a full-stack certification from <a href="https://mimo.org" target="_blank" rel="noopener">Mimo</a>. Talaria Labs is where I apply that foundation to ship real products &mdash; apps on the App Store and games coming to Steam. Every project is a chance to learn something new and ship something useful.</p>
+    </div>
+
+    <footer>
+        <p>&copy; 2025&ndash;2026 Talaria Labs. Built by Griffith Boggs.</p>
+        <div class="footer-links">
+            <a href="/">Home</a>
+            <a href="/treadtracker/">TalariaTreadTracker</a>
+            <a href="mailto:talarialabs@proton.me">Contact</a>
+            <a href="/privacy/">Privacy</a>
+        </div>
+        <div class="footer-links" style="margin-top: 12px;">
+            <a href="https://bsky.app/profile/talarialabs.bsky.social" target="_blank" rel="noopener">Bluesky</a>
+            <a href="https://instagram.com/talaria.labs" target="_blank" rel="noopener">Instagram</a>
+        </div>
+    </footer>
+
+</body>
+</html>

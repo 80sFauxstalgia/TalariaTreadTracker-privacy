@@ -32,6 +32,7 @@ Custom iOS keyboard that calibrates to your actual finger placement. Learns per-
 - Strava Comparison: https://talarialabs.app/compare/
 - Support: https://talarialabs.app/support/
 - Privacy Policy: https://talarialabs.app/privacy/
+- About: https://talarialabs.app/about/
 
 ## Contact
 

@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -12,12 +12,13 @@
     <meta property="og:title" content="TalariaTreadTracker vs Strava">
     <meta property="og:description" content="How TalariaTreadTracker's multi-factor shoe wear analysis compares to Strava's basic gear tracking. They're complementary, not competitive.">
     <meta property="og:url" content="https://talarialabs.app/compare/">
-    <meta property="og:image" content="https://talarialabs.app/app-icon.png">
+    <meta property="og:image" content="https://talarialabs.app/social-card.png">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Talaria Labs">
-    <meta name="twitter:card" content="summary">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="TalariaTreadTracker vs Strava">
     <meta name="twitter:description" content="Multi-factor shoe wear analysis vs basic gear tracking. Use both.">
+    <link rel="canonical" href="https://talarialabs.app/compare/" />
     <link rel="icon" type="image/png" href="/app-icon.png" />
     <script type="application/ld+json">
     {
@@ -32,77 +33,19 @@
       }
     }
     </script>
+    <link rel="stylesheet" href="/style.css" />
     <style>
+      /* Page-specific overrides */
       :root {
-        --bg: #0a1628;
-        --bg-card: #141e30;
-        --bg-card-hover: #1a2740;
-        --text: #f5f5f7;
-        --text-secondary: #a1a1a6;
-        --accent: #007aff;
-        --accent-hover: #0a84ff;
-        --border: #2a3444;
-        --radius: 16px;
-        --radius-sm: 10px;
-        --green: #30d158;
-        --orange: #ff9f0a;
         --red: #ff453a;
       }
 
-      @media (prefers-color-scheme: light) {
-        :root {
-          --bg: #f5f5f7;
-          --bg-card: #ffffff;
-          --bg-card-hover: #fafafa;
-          --text: #1d1d1f;
-          --text-secondary: #6e6e73;
-          --border: #d2d2d7;
-          --green: #248a3d;
-          --orange: #c93400;
-        }
-      }
-
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        font-family:
-          -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI",
-          Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-        background: var(--bg);
-        color: var(--text);
-        line-height: 1.6;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-      }
-
       nav {
-        padding: 20px 24px;
         max-width: 900px;
-        margin: 0 auto;
-        width: 100%;
-      }
-
-      nav a {
-        color: var(--accent);
-        text-decoration: none;
-        font-size: 0.9rem;
-        font-weight: 500;
-      }
-
-      nav a:hover {
-        text-decoration: underline;
       }
 
       .container {
         max-width: 900px;
-        margin: 0 auto;
-        padding: 0 24px 80px;
-        flex: 1;
       }
 
       /* Hero */
@@ -150,28 +93,6 @@
 
       .positioning strong {
         color: var(--text);
-      }
-
-      /* Section headers */
-      .section-header {
-        margin-bottom: 24px;
-        margin-top: 56px;
-      }
-
-      .section-header:first-of-type {
-        margin-top: 0;
-      }
-
-      .section-header h2 {
-        font-size: 1.6rem;
-        font-weight: 600;
-        letter-spacing: -0.01em;
-        margin-bottom: 8px;
-      }
-
-      .section-header p {
-        color: var(--text-secondary);
-        font-size: 0.95rem;
       }
 
       /* Comparison table */
@@ -315,62 +236,6 @@
         justify-content: center;
         gap: 16px;
         flex-wrap: wrap;
-      }
-
-      .btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 12px 24px;
-        border-radius: 980px;
-        font-size: 0.95rem;
-        font-weight: 500;
-        text-decoration: none;
-        transition: all 0.2s ease;
-      }
-
-      .btn-primary {
-        background: var(--accent);
-        color: #fff;
-      }
-
-      .btn-primary:hover {
-        background: var(--accent-hover);
-      }
-
-      .btn-secondary {
-        background: transparent;
-        color: var(--accent);
-        border: 1px solid var(--border);
-      }
-
-      .btn-secondary:hover {
-        border-color: var(--accent);
-      }
-
-      /* Footer */
-      footer {
-        text-align: center;
-        padding: 32px 24px;
-        border-top: 1px solid var(--border);
-        color: var(--text-secondary);
-        font-size: 0.85rem;
-      }
-
-      footer a {
-        color: var(--accent);
-        text-decoration: none;
-      }
-
-      footer a:hover {
-        text-decoration: underline;
-      }
-
-      .footer-links {
-        display: flex;
-        justify-content: center;
-        gap: 24px;
-        margin-top: 8px;
       }
 
       /* Responsive */
@@ -709,7 +574,7 @@
           based on how you actually run, not just how far.
         </p>
         <div class="cta-row">
-          <a href="https://apple.co/3NuCiOa" target="_blank" rel="noopener"><img src="/app-store-badge.svg" alt="Download on the App Store" style="height: 44px;"></a>
+          <a href="https://apple.co/3NuCiOa" target="_blank" rel="noopener"><img src="/app-store-badge.svg" alt="Download on the App Store" style="height: 44px;" loading="lazy"></a>
           <a href="/treadtracker/" class="btn btn-secondary">Learn More</a>
         </div>
       </div>
@@ -720,6 +585,7 @@
       <div class="footer-links">
         <a href="/">Home</a>
         <a href="/support/">Support</a>
+        <a href="/about/">About</a>
         <a href="mailto:talarialabs@proton.me">Contact</a>
         <a href="/privacy/">Privacy</a>
       </div>

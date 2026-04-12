@@ -9,12 +9,13 @@
     <meta property="og:title" content="Talaria Labs">
     <meta property="og:description" content="Thoughtful tools that solve real problems. Home of TalariaTreadTracker, If You Come for the King, Kerykeion, StreamSaver, and fatfingers.">
     <meta property="og:url" content="https://talarialabs.app/">
-    <meta property="og:image" content="https://talarialabs.app/app-icon.png">
+    <meta property="og:image" content="https://talarialabs.app/social-card.png">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Talaria Labs">
-    <meta name="twitter:card" content="summary">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Talaria Labs">
     <meta name="twitter:description" content="Thoughtful tools that solve real problems.">
+    <link rel="canonical" href="https://talarialabs.app/">
     <link rel="icon" type="image/png" href="app-icon.png">
     <script type="application/ld+json">
     {
@@ -58,51 +59,8 @@
       "operatingSystem": "Multi-platform"
     }
     </script>
+    <link rel="stylesheet" href="style.css">
     <style>
-        :root {
-            --bg: #0a1628;
-            --bg-card: #141e30;
-            --bg-card-hover: #1a2740;
-            --text: #f5f5f7;
-            --text-secondary: #a1a1a6;
-            --accent: #007AFF;
-            --accent-hover: #0a84ff;
-            --border: #2a3444;
-            --radius: 16px;
-            --radius-sm: 10px;
-            --green: #30d158;
-            --orange: #ff9f0a;
-        }
-
-        @media (prefers-color-scheme: light) {
-            :root {
-                --bg: #f5f5f7;
-                --bg-card: #ffffff;
-                --bg-card-hover: #fafafa;
-                --text: #1d1d1f;
-                --text-secondary: #6e6e73;
-                --border: #d2d2d7;
-                --green: #248a3d;
-                --orange: #c93400;
-            }
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
         /* Hero */
         .hero {
             text-align: center;
@@ -254,101 +212,15 @@
             flex-wrap: wrap;
         }
 
-        .badge {
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            padding: 4px 10px;
-            border-radius: 6px;
-        }
-
-        .badge-live {
-            background: rgba(48, 209, 88, 0.15);
-            color: var(--green);
-        }
-
-        .badge-beta {
-            background: rgba(255, 159, 10, 0.15);
-            color: var(--orange);
-        }
-
-        .badge-dev {
-            background: rgba(0, 122, 255, 0.1);
-            color: var(--accent);
-        }
-
-        .badge-soon {
-            background: rgba(175, 82, 222, 0.15);
-            color: #bf5af2;
-        }
-
-        @media (prefers-color-scheme: light) {
-            .badge-soon {
-                background: rgba(175, 82, 222, 0.12);
-                color: #8944ab;
-            }
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 18px;
-            border-radius: 980px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            text-decoration: none;
-            transition: all 0.2s ease;
-        }
-
-        .btn-primary {
-            background: var(--accent);
-            color: #fff;
-        }
-
-        .btn-primary:hover {
-            background: var(--accent-hover);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--accent);
-            border: 1px solid var(--border);
-        }
-
-        .btn-secondary:hover {
-            border-color: var(--accent);
-        }
-
         .platform-tag {
             font-size: 0.8rem;
             color: var(--text-secondary);
         }
 
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 32px 24px;
-            border-top: 1px solid var(--border);
-            color: var(--text-secondary);
+        /* Override shared button styles for compact size */
+        .btn {
+            padding: 8px 18px;
             font-size: 0.85rem;
-        }
-
-        footer a {
-            color: var(--accent);
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 24px;
-            margin-top: 8px;
         }
 
         /* Responsive */
@@ -417,7 +289,7 @@
                     </div>
                     <div class="app-footer">
                         <span class="badge badge-live">Available Now</span>
-                        <a href="https://apple.co/3NuCiOa" target="_blank" rel="noopener"><img src="app-store-badge.svg" alt="Download on the App Store" style="height: 40px; vertical-align: middle;"></a>
+                        <a href="https://apple.co/3NuCiOa" target="_blank" rel="noopener"><img src="app-store-badge.svg" alt="Download on the App Store" style="height: 40px; vertical-align: middle;" loading="lazy"></a>
                         <a href="/treadtracker/" class="btn btn-primary">Learn More</a>
                         <a href="/compare/" class="btn btn-secondary">vs Strava</a>
                         <span class="platform-tag">iOS</span>
@@ -503,6 +375,7 @@
         <p>&copy; 2025&ndash;2026 Talaria Labs. Built by Griffith Boggs.</p>
         <div class="footer-links">
             <a href="/support/">Support</a>
+            <a href="/about/">About</a>
             <a href="mailto:talarialabs@proton.me">Contact</a>
             <a href="/privacy/">Privacy</a>
         </div>
