@@ -1,0 +1,40 @@
+# Talaria Labs
+
+> talarialabs.app
+
+Independent software studio built by Griffith Boggs. Focused on privacy-first apps and games that solve real problems.
+
+## Apps
+
+### TalariaTreadTracker (Available Now - iOS)
+Science-backed shoe wear tracking for runners. Uses an 8-factor wear model (terrain, elevation, pace, temperature, biomechanics, fatigue, shoe age, rotation) instead of simple mileage. Reads workouts from HealthKit, auto-detects terrain via GPS, shows wear as honest ranges. $2.99 one-time, no subscriptions. Privacy-first: all analysis on-device, no accounts, no external servers.
+
+- App Store: https://apple.co/3NuCiOa
+- Details: https://talarialabs.app/treadtracker/
+- Strava comparison: https://talarialabs.app/compare/
+
+### If You Come for the King (Coming Soon - Steam, iOS, Android)
+Roguelike chess RPG with deck-building mechanics. Player is always a pawn with temporary power-ups. Build a hand of Stratagems (your turn) and Reactions (enemy turn). Defeat fuels progress (Hades model). Built in Godot 4.6. Premium, no microtransactions.
+
+### Kerykeion (In Development - macOS)
+Personal finance tool. Import bank CSVs, auto-categorize transactions, detect recurring bills, track runway. Smart transfer matching across accounts. All data stays local, no cloud.
+
+### StreamSaver (In Development - iOS)
+Streaming subscription optimizer. Tracks services, curates watchlists, generates month-by-month rotation plans. Powered by TMDB.
+
+### fatfingers (In Development - iOS)
+Custom iOS keyboard that calibrates to your actual finger placement. Learns per-key offsets to predict what you meant, not where you tapped.
+
+## Pages
+
+- Home: https://talarialabs.app/
+- TalariaTreadTracker: https://talarialabs.app/treadtracker/
+- Strava Comparison: https://talarialabs.app/compare/
+- Support: https://talarialabs.app/support/
+- Privacy Policy: https://talarialabs.app/privacy/
+
+## Contact
+
+- Email: talarialabs@proton.me
+- Bluesky: https://bsky.app/profile/talarialabs.bsky.social
+- Instagram: https://instagram.com/talaria.labs

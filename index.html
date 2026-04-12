@@ -6,7 +6,58 @@
     <title>Talaria Labs</title>
     <meta name="description" content="Talaria Labs builds thoughtful tools that solve real problems. Home of TalariaTreadTracker, Kerykeion, StreamSaver, and fatfingers.">
     <meta name="theme-color" content="#0a1628">
+    <meta property="og:title" content="Talaria Labs">
+    <meta property="og:description" content="Thoughtful tools that solve real problems. Home of TalariaTreadTracker, If You Come for the King, Kerykeion, StreamSaver, and fatfingers.">
+    <meta property="og:url" content="https://talarialabs.app/">
+    <meta property="og:image" content="https://talarialabs.app/app-icon.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Talaria Labs">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Talaria Labs">
+    <meta name="twitter:description" content="Thoughtful tools that solve real problems.">
     <link rel="icon" type="image/png" href="app-icon.png">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Talaria Labs",
+      "url": "https://talarialabs.app",
+      "logo": "https://talarialabs.app/app-icon.png",
+      "email": "talarialabs@proton.me",
+      "founder": {
+        "@type": "Person",
+        "name": "Griffith Boggs"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "TalariaTreadTracker",
+      "applicationCategory": "Health & Fitness",
+      "operatingSystem": "iOS",
+      "offers": {
+        "@type": "Offer",
+        "price": "2.99",
+        "priceCurrency": "USD"
+      },
+      "description": "Science-backed shoe wear tracking for runners with an 8-factor wear model including terrain, biomechanics, pace, elevation, temperature, fatigue, rotation, and foam aging.",
+      "url": "https://talarialabs.app/treadtracker/"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "VideoGame",
+      "name": "If You Come for the King",
+      "description": "A roguelike chess RPG with deck-building mechanics. You're always a pawn. Build a hand of Stratagems and Reactions, fight across shifting battlefields, and when you inevitably fall, your defeats unlock new paths forward.",
+      "genre": ["Roguelike", "Deck-Building", "Strategy", "Chess"],
+      "gamePlatform": ["Steam", "iOS", "Android"],
+      "applicationCategory": "Game",
+      "operatingSystem": "Multi-platform"
+    }
+    </script>
     <style>
         :root {
             --bg: #0a1628;
@@ -227,6 +278,18 @@
             color: var(--accent);
         }
 
+        .badge-soon {
+            background: rgba(175, 82, 222, 0.15);
+            color: #bf5af2;
+        }
+
+        @media (prefers-color-scheme: light) {
+            .badge-soon {
+                background: rgba(175, 82, 222, 0.12);
+                color: #8944ab;
+            }
+        }
+
         .btn {
             display: inline-flex;
             align-items: center;
@@ -355,9 +418,32 @@
                     <div class="app-footer">
                         <span class="badge badge-live">Available Now</span>
                         <a href="https://apple.co/3NuCiOa" target="_blank" rel="noopener"><img src="app-store-badge.svg" alt="Download on the App Store" style="height: 40px; vertical-align: middle;"></a>
-                        <a href="treadtracker.html" class="btn btn-primary">Learn More</a>
-                        <a href="compare.html" class="btn btn-secondary">vs Strava</a>
+                        <a href="/treadtracker/" class="btn btn-primary">Learn More</a>
+                        <a href="/compare/" class="btn btn-secondary">vs Strava</a>
                         <span class="platform-tag">iOS</span>
+                    </div>
+                </article>
+
+                <!-- If You Come for the King (Coming Soon) -->
+                <article class="app-card featured">
+                    <div class="app-card-header">
+                        <div class="app-icon-placeholder" aria-hidden="true">&#x265F;&#xFE0F;</div>
+                        <div class="app-info">
+                            <h2>If You Come for the King</h2>
+                            <p class="app-subtitle">A roguelike chess RPG with deck-building mechanics.</p>
+                        </div>
+                    </div>
+                    <p class="app-description">You're always a pawn. Build a hand of Stratagems and Reactions, fight across shifting battlefields, and when you inevitably fall &mdash; your defeats unlock new paths forward. No tutorials, no cutscenes. The board teaches.</p>
+                    <div class="feature-pills">
+                        <span class="pill">Roguelike</span>
+                        <span class="pill">Deck-Builder</span>
+                        <span class="pill">Chess</span>
+                        <span class="pill">Godot 4</span>
+                        <span class="pill">Single Player</span>
+                    </div>
+                    <div class="app-footer">
+                        <span class="badge badge-soon">Coming Soon</span>
+                        <span class="platform-tag">Steam &middot; iOS &middot; Android</span>
                     </div>
                 </article>
 
@@ -416,9 +502,9 @@
     <footer>
         <p>&copy; 2025&ndash;2026 Talaria Labs. Built by Griffith Boggs.</p>
         <div class="footer-links">
-            <a href="support.html">Support</a>
+            <a href="/support/">Support</a>
             <a href="mailto:talarialabs@proton.me">Contact</a>
-            <a href="privacy.html">Privacy</a>
+            <a href="/privacy/">Privacy</a>
         </div>
         <div class="footer-links" style="margin-top: 12px;">
             <a href="https://bsky.app/profile/talarialabs.bsky.social" target="_blank" rel="noopener">Bluesky</a>

@@ -6,7 +6,80 @@
     <title>Support - TalariaTreadTracker | Talaria Labs</title>
     <meta name="description" content="Get help with TalariaTreadTracker. Contact support, find answers to common questions.">
     <meta name="theme-color" content="#0a1628">
-    <link rel="icon" type="image/png" href="app-icon.png">
+    <meta property="og:title" content="Support - TalariaTreadTracker">
+    <meta property="og:description" content="Get help with TalariaTreadTracker. Frequently asked questions and contact support.">
+    <meta property="og:url" content="https://talarialabs.app/support/">
+    <meta property="og:image" content="https://talarialabs.app/app-icon.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Talaria Labs">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="TalariaTreadTracker Support">
+    <meta name="twitter:description" content="FAQ and contact support for TalariaTreadTracker.">
+    <link rel="icon" type="image/png" href="/app-icon.png">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why don't I see any workouts in the app?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "TalariaTreadTracker needs HealthKit permission to read your workouts. When you first open the app, tap Allow on the HealthKit authorization prompt. If you previously denied access, go to Settings > Health > Data Access & Devices > TalariaTreadTracker and enable workout data."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does the wear percentage work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The app calculates an estimated wear percentage based on multiple factors: distance, terrain (trail vs. road), pace, elevation gain, workout duration, temperature, and running biomechanics. These are combined into an effective mileage compared to your shoe's mileage limit. All wear values are estimates."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I assign workouts to a shoe?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Open a shoe's detail view, then tap Manage Workouts. You'll see a list of your recent running, walking, and hiking workouts. Toggle them on to assign them to that shoe. The app also supports auto-assignment for new workouts based on your active shoes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use the app with walking and hiking, not just running?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! TalariaTreadTracker supports running, walking, and hiking workouts. When adding a shoe, you can select which activity types it's used for."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does the app sync across my devices?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. If you're signed into iCloud, your shoes and workout assignments sync automatically via CloudKit. Note that HealthKit workout data itself stays on each device."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I delete my data?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can delete individual shoes by swiping left in the shoe list. To remove all data, uninstall the app. For iCloud data, delete the app from all your devices while signed into the same iCloud account."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does retire a shoe mean?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Retiring a shoe moves it to the Retired section and stops it from being auto-assigned new workouts. You can unretire a shoe at any time if you want to put it back into rotation."
+          }
+        }
+      ]
+    }
+    </script>
     <style>
         :root {
             --bg: #0a1628;
@@ -225,7 +298,7 @@
 
     <div class="container">
         <header>
-            <img src="app-icon.png" alt="TalariaTreadTracker app icon" class="app-logo">
+            <img src="/app-icon.png" alt="TalariaTreadTracker app icon" class="app-logo">
             <h1>Support for <span class="app-name">TalariaTreadTracker</span></h1>
             <p class="subtitle">We're here to help.</p>
         </header>
@@ -266,7 +339,7 @@
 
         <div class="faq-item">
             <h3>How do I delete my data?</h3>
-            <p>You can delete individual shoes by swiping left in the shoe list. To remove all data, uninstall the app. For iCloud data, delete the app from all your devices while signed into the same iCloud account. See our <a href="privacy.html">Privacy Policy</a> for full details.</p>
+            <p>You can delete individual shoes by swiping left in the shoe list. To remove all data, uninstall the app. For iCloud data, delete the app from all your devices while signed into the same iCloud account. See our <a href="/privacy/">Privacy Policy</a> for full details.</p>
         </div>
 
         <div class="faq-item">
@@ -279,9 +352,9 @@
         <p>&copy; 2025&ndash;2026 Talaria Labs. Built by Griffith Boggs.</p>
         <div class="footer-links">
             <a href="/">Home</a>
-            <a href="compare.html">Compare</a>
+            <a href="/compare/">Compare</a>
             <a href="mailto:talarialabs@proton.me">Contact</a>
-            <a href="privacy.html">Privacy</a>
+            <a href="/privacy/">Privacy</a>
         </div>
         <div class="footer-links" style="margin-top: 12px;">
             <a href="https://bsky.app/profile/talarialabs.bsky.social" target="_blank" rel="noopener">Bluesky</a>
