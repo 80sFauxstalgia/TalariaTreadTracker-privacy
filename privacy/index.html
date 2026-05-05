@@ -174,13 +174,13 @@
             <img src="/app-icon.png" alt="TalariaTreadTracker app icon" class="app-logo">
             <h1>Privacy Policy for <span class="app-name">TalariaTreadTracker</span></h1>
             <div class="date-info">
-                <strong>Last Updated:</strong> February 17, 2026<br>
+                <strong>Last Updated:</strong> May 4, 2026<br>
                 <strong>Effective Date:</strong> November 3, 2025
             </div>
         </header>
 
         <section class="tldr">
-            <p><strong>TL;DR:</strong> We don't collect, sell, or share your data with anyone. Everything stays on your device and in your personal iCloud account.</p>
+            <p><strong>TL;DR:</strong> We don't collect, sell, or share your data. Everything stays on your device and in your personal iCloud account. The only exception is if you choose to connect your Strava account &mdash; then shoe-to-activity assignments are sent to Strava on your behalf. Strava is fully optional.</p>
         </section>
 
         <h2>Introduction</h2>
@@ -215,6 +215,20 @@
             <li>App preferences (distance units, display settings)</li>
         </ul>
 
+        <h3>Strava Integration (Optional)</h3>
+        <p>If you choose to connect your Strava account, the App accesses the following data with your explicit authorization:</p>
+        <ul>
+            <li><strong>Strava Profile:</strong> Athlete ID and basic profile information (used to identify your account)</li>
+            <li><strong>Strava Gear:</strong> Your existing shoes/gear in Strava, used for mapping to your TalariaTreadTracker shoes</li>
+            <li><strong>Recent Activities:</strong> Activity start time, distance, and duration &mdash; read only to match HealthKit workouts to Strava activities for gear assignment</li>
+            <li><strong>OAuth Tokens:</strong> Access and refresh tokens issued by Strava are stored securely in your device's Keychain</li>
+        </ul>
+        <p>The integration is <strong>fully optional</strong>. If you do not connect Strava, none of this data is accessed and no data is exchanged with Strava.</p>
+
+        <div class="highlight-box">
+            <p><strong>How OAuth works:</strong> A small Cloudflare Worker (operated by Talaria Labs) handles the Strava OAuth token exchange so that the Strava client secret is not embedded in the app. The Worker only proxies the token exchange &mdash; it does not log, store, or retain your tokens or any health, gear, or activity data. Tokens are returned directly to your device and stored in the Keychain.</p>
+        </div>
+
         <h2>How We Use Your Information</h2>
 
         <h3>On-Device Processing</h3>
@@ -228,8 +242,17 @@
         </ul>
 
         <div class="highlight-box">
-            <p><strong>We do not send any health data to external servers.</strong></p>
+            <p><strong>We do not send your health data to external servers.</strong> If you connect Strava, only the minimum necessary data (a gear identifier attached to a matched activity) is sent &mdash; never raw HealthKit data, biomechanics metrics, or wear analysis results.</p>
         </div>
+
+        <h3>Strava Sync (If Connected)</h3>
+        <p>When Strava is connected, the App performs forward-only sync of shoe assignments:</p>
+        <ul>
+            <li><strong>Activity Matching:</strong> When you assign a workout to a shoe in TalariaTreadTracker, the App fetches your recent Strava activities and matches by start time (&plusmn;2 minutes) and distance (&plusmn;5%)</li>
+            <li><strong>Gear Assignment:</strong> On match, the App sends a single API call to Strava attaching the corresponding Strava gear ID to the activity</li>
+            <li><strong>Removal:</strong> Removing a workout from a shoe clears the gear ID on the matching Strava activity</li>
+            <li><strong>What's Never Sent:</strong> HealthKit data, biomechanics, route GPS, wear estimates, photos, shoe metadata, or any analytics</li>
+        </ul>
 
         <h3>Data Storage</h3>
         <ul>
@@ -243,15 +266,19 @@
 
         <h2>Data Sharing and Disclosure</h2>
         <div class="highlight-box">
-            <p><strong>We do not share, sell, or transmit your data to third parties. Period.</strong></p>
+            <p><strong>We do not sell your data, run analytics, or share data with advertisers.</strong></p>
             <ul>
                 <li>No analytics services</li>
                 <li>No advertising networks</li>
                 <li>No data brokers</li>
-                <li>No external servers</li>
             </ul>
         </div>
-        <p>The only data transmission occurs between your own devices via your personal iCloud account (if enabled).</p>
+        <p>Data transmission is limited to:</p>
+        <ul>
+            <li><strong>iCloud (your account):</strong> Sync between your own devices via your personal iCloud account, if enabled</li>
+            <li><strong>Strava (opt-in):</strong> If you connect Strava, gear assignments on matched activities are sent to Strava on your behalf. Strava's handling of this data is governed by <a href="https://www.strava.com/legal/privacy" target="_blank" rel="noopener">Strava's Privacy Policy</a></li>
+            <li><strong>Talaria Labs OAuth Worker:</strong> A stateless Cloudflare Worker proxies Strava token exchange. It does not store, log, or retain any user data</li>
+        </ul>
 
         <h2>Your Data Rights and Controls</h2>
 
@@ -261,7 +288,8 @@
             <li><strong>Delete Shoes:</strong> Swipe to delete any shoe and its associated data</li>
             <li><strong>Unassign Workouts:</strong> Remove workout assignments at any time</li>
             <li><strong>Revoke HealthKit Access:</strong> Settings &rarr; Health &rarr; Data Access &amp; Devices &rarr; TalariaTreadTracker &rarr; Turn Off All</li>
-            <li><strong>Delete All Data:</strong> Uninstalling the app removes all local data. iCloud data can be deleted by signing out of iCloud or deleting the app from all devices.</li>
+            <li><strong>Disconnect Strava:</strong> In the App, go to Settings &rarr; Integrations &rarr; Disconnect Strava. This deletes the OAuth tokens from your Keychain. You can also revoke access directly from your Strava account at <a href="https://www.strava.com/settings/apps" target="_blank" rel="noopener">strava.com/settings/apps</a></li>
+            <li><strong>Delete All Data:</strong> Uninstalling the app removes all local data and Strava tokens. iCloud data can be deleted by signing out of iCloud or deleting the app from all devices.</li>
         </ul>
 
         <h3>iCloud Sync Control</h3>
@@ -283,8 +311,12 @@
         <p>The App does not knowingly collect information from children under 13. The App is not directed at children, and we do not knowingly collect personal information from anyone under 13 years of age.</p>
 
         <h2>Third-Party Services</h2>
-        <p>The App does not integrate with any third-party services, analytics platforms, or advertising networks.</p>
-        <p>The App uses only Apple's built-in frameworks:</p>
+        <p>The App does not use analytics platforms or advertising networks. Third-party services are limited to:</p>
+        <ul>
+            <li><strong>Strava (optional):</strong> Only if you explicitly connect your Strava account. Governed by <a href="https://www.strava.com/legal/privacy" target="_blank" rel="noopener">Strava's Privacy Policy</a> and <a href="https://www.strava.com/legal/terms" target="_blank" rel="noopener">Terms of Service</a></li>
+            <li><strong>Cloudflare Workers (Talaria Labs):</strong> A stateless OAuth proxy used solely to exchange Strava authorization codes for tokens. No user data is stored or logged</li>
+        </ul>
+        <p>The App also relies on Apple's built-in frameworks:</p>
         <ul>
             <li><strong>HealthKit:</strong> For reading workout and biomechanics data</li>
             <li><strong>CloudKit:</strong> For syncing your data across your own devices</li>
@@ -340,11 +372,18 @@
             <li><strong>User Content:</strong> Shoe names, brands, settings</li>
         </ul>
 
+        <h3>Data Linked to You (Optional, Strava Only)</h3>
+        <p>If you connect Strava:</p>
+        <ul>
+            <li><strong>User ID:</strong> Strava athlete ID (used to identify your Strava account)</li>
+            <li><strong>Other Data:</strong> Strava gear list and recent activity metadata (start time, distance, duration) used for matching</li>
+        </ul>
+
         <h3>Data Not Collected</h3>
         <ul>
             <li>Contact information</li>
             <li>Location (beyond workout routes already in HealthKit)</li>
-            <li>Identifiers</li>
+            <li>Advertising or marketing identifiers</li>
             <li>Usage data</li>
             <li>Diagnostics</li>
             <li>Financial information</li>
@@ -358,9 +397,9 @@
         <p>We built TalariaTreadTracker with privacy as a core principle. Your health data is yours alone.</p>
         <ul class="checkmark-list">
             <li>Everything processes on your device</li>
-            <li>No external servers or databases</li>
-            <li>No third-party analytics or tracking</li>
+            <li>No analytics, tracking, or advertising</li>
             <li>No data sales or sharing</li>
+            <li>Strava integration is opt-in and minimal</li>
             <li>Complete user control over all data</li>
         </ul>
         <p><strong>If you have concerns or questions, please reach out. We're here to help.</strong></p>
